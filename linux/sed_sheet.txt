@@ -1,0 +1,52 @@
+# sed (Stream Editor) Cheat Sheet
+
+# Basic Syntax
+sed [options] 'command' file            # Apply sed command to a file
+sed [options] -e 'command' -e 'command' file # Apply multiple sed commands
+
+# Common Options
+-e script      # Add the script to the commands to be executed
+-f file        # Add the contents of script-file to the commands to be executed
+-n             # Suppress automatic printing of pattern space
+-i             # Edit files in-place (makes changes to the file)
+
+# Addressing Lines
+1              # First line
+$              # Last line
+1,10           # Lines from 1 to 10
+/pattern/      # Lines matching pattern
+1,/pattern/    # From line 1 to matching pattern
+
+# Basic Commands
+p              # Print the current pattern space
+d              # Delete pattern space; start next cycle
+s/pattern/replacement/ # Substitute pattern with replacement
+s/pattern/replacement/g # Substitute all occurrences of pattern
+
+# Regular Expressions
+.              # Any single character
+*              # Zero or more of the preceding element
+^              # Start of line
+$              # End of line
+[abc]          # Any character listed between the brackets
+[^abc]         # Any character not listed between the brackets
+
+# Examples
+sed 's/unix/linux/' file.txt          # Replace first occurrence of 'unix' with 'linux' in each line
+sed 's/unix/linux/g' file.txt         # Replace all occurrences of 'unix' with 'linux'
+sed '/unix/d' file.txt                # Delete lines containing 'unix'
+sed '5d' file.txt                     # Delete line 5
+sed '2,4d' file.txt                   # Delete lines from 2 to 4
+sed -n '5p' file.txt                  # Print only line 5
+sed -n '1,5p' file.txt                # Print lines 1 to 5
+sed 's/unix/linux/2' file.txt         # Replace the second occurrence of 'unix' with 'linux'
+sed -i 's/unix/linux/g' file.txt      # Replace all occurrences of 'unix' with 'linux' in file in-place
+sed '1,5s/unix/linux/g' file.txt      # Replace 'unix' with 'linux' from line 1 to 5
+
+# Advanced Examples
+sed -e '1d' -e 's/unix/linux/' file.txt # Combine multiple commands with -e
+sed -n '/pattern/p' file.txt            # Print only lines that match pattern
+sed '/^#/d' file.txt                    # Delete all lines starting with '#'
+sed '/^$/d' file.txt                    # Delete all empty lines
+sed 'G' file.txt                        # Append a blank line after each line
+

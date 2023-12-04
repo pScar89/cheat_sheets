@@ -1,0 +1,29 @@
+Most Common:
+    url(value): Validates if the given value is a URL.
+    email(value): Checks if the given value is a valid email address.
+    length(value, min=None, max=None): Validates the length of the value with optional minimum and maximum limits.
+    integer(value): Checks if the value is an integer.
+    decimal(value): Validates if the value is a decimal number.
+
+Networking:
+    mac_address(value): Confirms if the given value is a valid MAC address.
+    ip_address(value): Validates whether the value is an IPv4 or IPv6 address.
+    ipv4(value): Determines if the given value is a valid IPv4 address.
+    ipv6(value): Checks if the given value is a valid IPv6 address.
+
+Useful Values:
+    credit_card(value): Checks if the value is a valid credit card number.
+    between(value, min=None, max=None): Validates if the value falls within a specified range.
+    date(value): Checks if the given value is a date.
+    boolean(value): Validates if the value is a boolean (True/False).
+
+Web Related:
+    domain(value): Confirms if the given value is a domain.
+    slug(value): Validates if the given value is a URL-friendly slug.
+
+Misc:
+    truthy(value): Determines if the given value is truthy (evaluates to True).
+    falsy(value): Determines if the given value is falsy (evaluates to False).
+    uuid(value): Validates if the given value is a valid UUID.
+    uuid4(value): Specifically checks if the value is a valid UUID version 4.
+    uuid5(value): Specifically checks if the value is a valid UUID version 5.

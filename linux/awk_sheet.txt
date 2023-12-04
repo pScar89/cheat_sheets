@@ -1,0 +1,56 @@
+# AWK Cheat Sheet
+
+# Basic Structure of an AWK Command
+awk 'pattern { action }' file
+
+# Patterns
+/regex/          # Lines matching the regular expression
+BEGIN            # Action to be performed before the first input line is read
+END              # Action to be performed after the last input line is read
+NR == n          # n-th record (line)
+NF == n          # Record with n fields
+
+# Built-in Variables
+FS               # Field Separator (default is whitespace)
+OFS              # Output Field Separator (default is space)
+RS               # Record Separator (default is newline)
+ORS              # Output Record Separator (default is newline)
+NF               # Number of Fields in current record
+NR               # Number of Records processed so far
+FILENAME         # Name of the current input file
+
+# Common Actions
+{ print }        # Print the current record
+{ print $1 }     # Print the first field of the current record
+{ print $NF }    # Print the last field of the current record
+{ sum += $1 }    # Add the value of the first field to 'sum'
+
+# Arithmetic and String Operators
++ - * / %        # Arithmetic operators
+== != < > <= >=  # Comparison operators
+&& || !          # Logical operators
+~ !~             # Regular expression match, not match
+$                # Field reference, e.g., $1, $2, ...
+
+# Control Structures
+if (condition) action
+if (condition) { action1; action2; }
+for (initialization; condition; increment) action
+while (condition) action
+
+# Arrays
+array[index] = value  # Assign value to an element of an array
+for (i in array)      # Iterate over array
+
+# Functions
+length(string)        # Return length of string
+substr(string, start, length) # Return substring of string
+split(string, array, sep)     # Split string into array using sep as separator
+gsub(regex, replacement, string) # Globally substitute regex with replacement in string
+
+# Sample Usage
+awk '{ print $1, $2 }' file.txt           # Print the first two fields of each line
+awk -F: '{ print $1 }' /etc/passwd        # Print the first field of each line, using ':' as field separator
+awk '/pattern/ { print $0 }' file.txt     # Print lines that match the pattern
+awk 'BEGIN { FS=","; OFS=" - " } { print $1, $2 }' file.csv # Set FS and OFS and then print fields
+

@@ -1,0 +1,58 @@
+# Git/GitHub Cheat Sheet
+
+# Setting Up Git
+git config --global user.name "Your Name"     # Set your name
+git config --global user.email "your_email@example.com" # Set your email
+
+# Starting a Git Repository
+git init                                      # Initialize a local Git repository
+git clone [url]                               # Clone a remote repository to your local machine
+
+# Basic Git Operations
+git status                                    # Check the status of changes
+git add [file]                                # Add a file to the staging area
+git add .                                     # Add all new and changed files to the staging area
+git commit -m "Commit message"                # Commit changes
+git push [alias] [branch]                     # Push local commits to the remote repository
+git pull [alias] [branch]                     # Fetch and merge changes from the remote
+
+# Branching
+git branch                                    # List all local branches
+git branch [branch_name]                      # Create a new branch
+git checkout [branch_name]                    # Switch to a specified branch
+git merge [branch_name]                       # Merge a branch into the active branch
+git branch -d [branch_name]                   # Delete a branch
+
+# Viewing Changes
+git log                                       # View changes
+git log --summary                             # View changes (detailed)
+git diff                                      # Show file differences not yet staged
+git diff --staged                             # Show file differences between staging and the last file version
+
+# Undoing Changes
+git reset [file]                              # Unstage a file while retaining the changes in working directory
+git checkout -- [file]                        # Discard changes in the working directory
+git revert [commit]                           # Revert a commit by creating a new commit with contrary changes
+git reset --hard [commit]                     # Reset the HEAD to a previous commit, discarding all changes
+
+# GitHub Operations
+git remote add origin [url]                   # Add a remote repository
+git remote set-url origin [url]               # Change the URL of the remote repository
+git push -u origin [branch]                   # Push changes to remote repository (and remember the branch)
+git fetch                                     # Fetch changes from the remote repository
+git pull origin [branch]                      # Pull changes from a remote repository
+
+# Collaboration
+git pull request                              # Create a pull request
+git fetch upstream                            # Fetch changes from the original repository
+git merge upstream/[branch]                   # Merge changes from upstream into your branch
+
+# Stashing
+git stash                                     # Stash changes in a dirty working directory
+git stash clear                               # Remove all stashed entries
+
+# Git Tags
+git tag                                       # List all tags
+git tag [tag_name]                            # Create a new tag
+git push --tags                               # Push all tags to remote repository
+

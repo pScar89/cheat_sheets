@@ -1,0 +1,66 @@
+# Capture The Flag (CTF) Cheat Sheet
+
+# General
+; Command chaining
+| Pipe output to another command
+> Redirect output to a file
+>> Append output to a file
+
+# Cryptography
+openssl                        # Powerful tool for cryptographic operations
+gpg                            # GNU Privacy Guard for encryption and signing
+hashcat                        # Password recovery tool for hash cracking
+john                           # John the Ripper, password cracking tool
+fcrackzip                      # Crack zip files with encrypted passwords
+
+# Steganography
+steghide                       # Tool for hiding data in various kinds of files
+binwalk                        # Search a binary image for embedded files and executable code
+exiftool                       # Read, write and edit file metadata
+stegsolve                      # Analyze and solve steganography challenges
+
+# Web Exploitation
+curl                           # Transfer data from or to a server
+sqlmap                         # Automated SQL injection and database takeover tool
+dirb                           # Web content scanner
+nikto                          # Web server scanner
+burpsuite                      # Integrated platform for performing security testing of web applications
+wfuzz                          # Web application fuzzer
+
+# Binary Exploitation
+gdb                            # GNU Debugger
+peda                           # Python Exploit Development Assistance for GDB
+pwntools                       # CTF framework and exploit development library
+ltrace                         # Library call tracer
+strace                         # System call tracer
+radare2                        # Open-source reverse engineering framework
+
+# Networking
+nmap                           # Network exploration tool and security scanner
+Wireshark                      # Network protocol analyzer
+tcpdump                        # Command-line packet capture and analyzer
+netcat (nc)                    # Networking utility for reading/writing network connections
+
+# Scripting and Automation
+python                         # Powerful scripting language
+bash                           # Unix shell and command language
+awk                            # Pattern scanning and processing language
+sed                            # Stream editor for filtering and transforming text
+
+# Forensics
+foremost                       # File recovery tool
+volatility                     # Memory forensics framework
+binwalk                        # Firmware analysis tool
+dd                             # Convert and copy a file
+
+# Reverse Engineering
+IDA Pro                        # Interactive Disassembler
+Ghidra                         # Software reverse engineering suite
+OllyDbg                        # Windows debugger for analyzing binaries
+apktool                        # Tool for reverse engineering Android apps
+strings                        # Print the sequences of printable characters in files
+
+# Miscellaneous
+base64                         # Encode/decode data in base64 format
+xxd                            # Create a hex dump or do the reverse
+file                           # Determine file type

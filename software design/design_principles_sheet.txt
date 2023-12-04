@@ -1,0 +1,62 @@
+# Software Design Principles & Best Practices Cheat Sheet
+
+# SOLID PRINCIPLES
+1. Single Responsibility Principle (SRP)
+   - A class should have one, and only one, reason to change.
+
+2. Open/Closed Principle (OCP)
+   - Software entities should be open for extension, but closed for modification.
+
+3. Liskov Substitution Principle (LSP)
+   - Objects in a program should be replaceable with instances of their subtypes without altering the correctness of the program.
+
+4. Interface Segregation Principle (ISP)
+   - No client should be forced to depend on methods it does not use.
+
+5. Dependency Inversion Principle (DIP)
+   - High-level modules should not depend on low-level modules. Both should depend on abstractions.
+
+# DESIGN TECHNIQUES
+- Design Patterns: Reusable solutions to common problems (e.g., Factory, Singleton, Observer, etc.).
+- Modular Design: Breaking down a system into smaller, manageable, and interchangeable modules.
+- Model-View-Controller (MVC): Separating data (Model), user interface (View), and business logic (Controller).
+- Domain-Driven Design (DDD): Focusing on the core domain logic and domain experts' knowledge.
+
+# BEST PRACTICES
+1. Keep It Simple, Stupid (KISS)
+   - Avoid unnecessary complexity; simpler is often better.
+
+2. Don't Repeat Yourself (DRY)
+   - Aim for a single, authoritative representation of every piece of knowledge within a system.
+
+3. You Aren't Gonna Need It (YAGNI)
+   - Don't implement something until it is necessary.
+
+4. Code for Readability
+   - Write code as if the next person to maintain it is a violent psychopath who knows where you live.
+
+5. Refactoring
+   - Regularly improve the code without changing its external behavior.
+
+6. Unit Testing
+   - Test individual units/components of the software in isolation.
+
+7. Continuous Integration / Continuous Deployment (CI/CD)
+   - Regularly integrate code into a shared repository and automate the deployment process.
+
+8. Agile Methodologies
+   - Embrace adaptive planning, evolutionary development, early delivery, and continual improvement.
+
+9. Documentation
+   - Maintain clear and concise documentation for better understanding and maintenance.
+
+10. Code Reviews
+    - Regularly review code with peers to identify issues and share knowledge.
+
+# TIPS
+- Understand the problem domain thoroughly before designing a solution.
+- Favor composition over inheritance.
+- Make use of version control systems like Git.
+- Adhere to coding standards and conventions.
+- Stay updated with the latest trends and technologies.
+- Seek feedback and be open to learning from mistakes.

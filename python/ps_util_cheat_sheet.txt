@@ -1,0 +1,58 @@
+# Python psutil Module Cheat Sheet
+
+# Importing psutil
+import psutil
+
+# SYSTEM UTILITIES
+
+# CPU Information
+psutil.cpu_times()             # Times spent by normal and idle processes
+psutil.cpu_percent(interval=1) # CPU utilization as a percentage
+psutil.cpu_count(logical=False) # Number of physical cores
+psutil.cpu_stats()             # CPU statistics
+
+# Memory Information
+psutil.virtual_memory()        # Virtual memory statistics
+psutil.swap_memory()           # Swap memory statistics
+
+# Disk Information
+psutil.disk_partitions()       # Disk partition information
+psutil.disk_usage('/')         # Disk usage statistics
+psutil.disk_io_counters()      # Disk I/O statistics
+
+# Network Information
+psutil.net_io_counters()       # Network I/O statistics
+psutil.net_connections()       # Network connections
+psutil.net_if_addrs()          # Network interface addresses
+psutil.net_if_stats()          # Network interface status
+
+# Sensors (Hardware Temperatures)
+psutil.sensors_temperatures()  # Hardware temperatures
+
+# Boot Time
+psutil.boot_time()             # System boot time
+
+# PROCESS UTILITIES
+
+# Process Information
+psutil.pids()                  # List of all current process IDs
+p = psutil.Process(pid)        # Instantiate a process object (replace pid with actual process ID)
+p.name()                       # Get process name
+p.exe()                        # Get process executable path
+p.cwd()                        # Get process current working directory
+p.status()                     # Get process status
+p.create_time()                # Get process creation time
+p.cpu_times()                  # Get process CPU times
+p.memory_info()                # Get process memory usage
+p.open_files()                 # Get files opened by process
+p.connections()                # Get network connections established by process
+p.num_threads()                # Get number of threads used by process
+
+# Managing Processes
+p.terminate()                  # Terminate the process
+p.kill()                       # Kill the process
+psutil.wait_procs(procs, timeout) # Wait for multiple processes to terminate
+
+# Users
+psutil.users()                 # List of users currently logged in
+

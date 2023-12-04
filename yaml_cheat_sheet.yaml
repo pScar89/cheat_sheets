@@ -1,0 +1,98 @@
+# YAML Syntax and Usage Cheat Sheet
+
+# Basic Structure
+- YAML files typically end in '.yml' or '.yaml'
+- Indentation is used to denote structure
+- Tab characters are not allowed; spaces are used for indentation
+
+# Key-Value Pairs
+key: value
+
+# Scalars (single values)
+name: John Doe
+
+# Numbers
+age: 35
+
+# Boolean
+is_active: true
+
+# Null
+parent: null
+
+# Strings
+# Unquoted
+name: John Doe
+# Double-quoted (supports escape characters)
+name: "John Doe\n"
+# Single-quoted (literal, no escaping)
+name: 'John Doe'
+
+# Multiline Strings
+bio: |
+  This is a multiline string.
+  Line breaks are preserved.
+address: >
+  This is also a multiline string.
+  Line breaks will not be preserved.
+
+# Lists (Arrays)
+items:
+  - item1
+  - item2
+  - item3
+
+# Nested Lists
+items:
+  - part1:
+      - subpart1
+      - subpart2
+  - part2:
+      - subpart1
+      - subpart2
+
+# Dictionaries (Maps)
+person:
+  name: John Doe
+  age: 35
+
+# Nested Dictionaries
+person:
+  name: John Doe
+  details:
+    age: 35
+    city: New York
+
+# List of Dictionaries
+employees:
+  - name: John Doe
+    job: Developer
+  - name: Jane Smith
+    job: Designer
+
+# Inline Notation
+# Inline List
+items: [item1, item2, item3]
+
+# Inline Dictionary
+person: {name: John Doe, age: 35}
+
+# Anchors and Aliases
+# Define an anchor (reuse later)
+base: &base
+  name: Base config
+
+# Use the alias
+production:
+  <<: *base
+  url: production-url.com
+
+# Merging Maps
+defaults: &defaults
+  adapter: postgres
+  host: localhost
+
+development:
+  <<: *defaults
+  database: dev_db
+
