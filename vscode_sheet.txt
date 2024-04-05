@@ -4,7 +4,7 @@
 Ctrl + Shift + P        # Show Command Palette
 Ctrl + P                # Quick Open
 Ctrl + Shift + N        # New Window/Instance
-Ctrl + W                # Close Window
+Ctrl + W                # Close Tab
 Ctrl + ,                # User Settings
 Ctrl + K Ctrl + S       # Keyboard Shortcuts
 

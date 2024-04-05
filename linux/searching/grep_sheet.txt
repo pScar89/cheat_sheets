@@ -1,0 +1,37 @@
+Grep Cheat Sheet
+
+Basic Structure of a Grep Command
+grep 'pattern' file
+grep [options] 'pattern' file
+
+Patterns
+'^pattern' # Lines starting with the pattern
+'pattern$' # Lines ending with the pattern
+'.pattern.' # Lines containing the pattern (default behavior)
+
+Common Options
+-i # Ignore case distinctions in both the pattern and the input files
+-v # Invert the sense of matching, to select non-matching lines
+-c # Count of matching lines for each input file
+-l # Print only the names of files with matching lines, once for each file
+-n # Prefix each line of output with the 1-based line number within its input file
+--color=auto # Highlight matching strings; this can be disabled using --color=never
+-r or -R # Recursively search directories for patterns
+-E # Interpret pattern as an extended regular expression (ERE)
+-F # Interpret pattern as a list of fixed strings (instead of regular expressions), separated by newlines
+-w # Select only those lines containing matches that form whole words
+
+
+Escape Sequences
+\^ # Matches a literal caret symbol at the beginning of a pattern
+\$ # Matches a literal dollar sign at the end of a pattern
+\[ # Matches a literal opening square bracket
+\. # Matches a literal period
+
+Sample Usage
+grep 'pattern' file.txt # Search for 'pattern' in file.txt
+grep -i 'pattern' file.txt # Case-insensitive search for 'pattern' in file.txt
+grep -r 'pattern' /path/to/directory # Recursively search for 'pattern' in all files under the given directory
+grep -v 'pattern' file.txt # Print lines that do not match the 'pattern'
+grep -n 'pattern' file.txt # Print matched lines with line numbers
+grep -E 'pattern1|pattern2' file.txt # Search for lines matching 'pattern1' or 'pattern2' using ERE
