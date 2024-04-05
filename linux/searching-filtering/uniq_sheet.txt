@@ -1,0 +1,39 @@
+UNIQ Cheat Sheet
+Basic Structure of a UNIQ Command
+uniq [options] [input_file] [output_file]
+
+Main Options
+-c, --count # Prefix lines by the number of occurrences
+-d, --repeated # Only print duplicate lines, one for each group
+-D, --all-repeated[=METHOD] # Print all duplicate lines. METHOD can be 'none' (default), 'prepend', or 'separate'.
+-u, --unique # Only print unique lines
+-i, --ignore-case # Ignore differences in case when comparing
+-s, --skip-fields=N # Skip the first N fields
+-w, --check-chars=N # Compare no more than N characters in lines
+-f, --skip-fields=N # Avoid comparing the first N fields
+--group[=METHOD] # Group lines. METHOD can be 'prepend', 'append', or 'separate'.
+-z, --zero-terminated # Line delimiter is NUL, not newline
+
+Common Uses
+uniq file.txt # Remove duplicate lines from file.txt
+uniq -c file.txt # Count occurrences of each line in file.txt
+uniq -d file.txt # Show only lines that appear more than once in file.txt
+uniq -u file.txt # Show only lines that appear exactly once in file.txt
+cat file.txt | sort | uniq # Sort file.txt before removing duplicates
+cat file.txt | sort | uniq -c # Sort file.txt and count occurrences of each line
+uniq -i file.txt # Ignore case when comparing lines in file.txt
+uniq --group=separate file.txt # Group duplicate lines, separated by an empty line
+
+Examples of Advanced Usage
+uniq -s 2 -w 10 file.txt # Skip first 2 fields, then compare the first 10 characters of the remaining line
+uniq -f 1 file.txt # Ignore the first field when comparing lines
+uniq -D file.txt # Print all duplicate lines
+uniq -D --group=prepend file.txt # Print all duplicate lines, prepending each group with an empty line
+
+Comparison Options
+-f, --skip-fields=N # Do not compare the first N fields
+-s, --skip-chars=N # Do not compare the first N characters
+-w, --check-chars=N # Compare at most N characters in lines
+
+Sorting Requirement
+Note: UNIQ does not sort; it removes duplicates only in adjacent lines. Use SORT before UNIQ for a full dedupe.

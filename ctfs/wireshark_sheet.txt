@@ -1,0 +1,39 @@
+Wireshark Cheat Sheet
+Wireshark is a network packet analyzer that allows users to capture and display the data traveling back and forth on a network in real-time. This guide provides a quick reference to essential Wireshark operations and filter expressions.
+
+Basic Operations
+Start a Capture: Capture > Start (Select appropriate interface)
+Stop a Capture: Capture > Stop
+Save a Capture: File > Save As
+Open a Saved Capture: File > Open
+Display Filters
+A display filter in Wireshark is used to only show packets that match a specific criterion.
+
+IP Address: ip.addr == 192.168.1.1
+Source IP Address: ip.src == 192.168.1.1
+Destination IP Address: ip.dst == 192.168.1.1
+Protocol: tcp or udp or icmp, etc.
+Port Number: tcp.port == 80 or udp.port == 53
+Combining Conditions: Use and, or, not (e.g., ip.addr == 192.168.1.1 and tcp.port == 80)
+Color Coding
+By default, Wireshark color codes packets for easier analysis:
+TCP packets: Light purple
+UDP packets: Light blue
+TCP handshake: Black, Bold
+Custom color rules can be set in View > Coloring Rules.
+Common Tasks
+Follow a TCP Stream: Right-click on a TCP packet > Follow > TCP Stream.
+Filter by Protocol: Enter the protocol name in the display filter (e.g., http, ftp, dns).
+Search for Text: Edit > Find Packet > Select String, Hex, or Regular Expression > Enter search term.
+Expert Info and Diagnostics
+Expert Info: Analyze > Expert Info provides a summary of potential issues or anomalies in the capture.
+IO Graphs: Statistics > IO Graphs can visualize packet rates over time.
+Statistics
+Protocol Hierarchy: Statistics > Protocol Hierarchy shows the distribution of protocols in the capture.
+Endpoints: Statistics > Endpoints lists all source and destination addresses.
+Conversations: Statistics > Conversations shows communication pairs and their packet counts.
+Wireshark Profiles
+Creating Profiles: Manage profiles for different tasks or environments via Edit > Configuration Profiles.
+Profiles can customize columns, display filters, and color rules.
+Custom Columns
+Adding/Editing Columns: Edit > Preferences > Columns allows customization of the packet list columns for displayed information (e.g., adding a column for HTTP method or a specific protocol field).

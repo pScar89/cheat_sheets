@@ -1,0 +1,44 @@
+Find Command Cheat Sheet
+Basic Structure of a Find Command
+find [path] [options] [action]
+
+Common Paths
+. # Current directory
+/ # Root directory
+~/ # Home directory
+
+Common Options
+-name 'pattern' # Find files with names that match the pattern
+-type [f|d|l] # Type: f for files, d for directories, l for symbolic links
+-size [+|-]size # File size: + for greater, - for less, e.g., +10M for files over 10MB
+-user username # Find files owned by username
+-group groupname # Find files owned by the group
+-mtime [+|-]days # File modification time in days, + for older, - for newer
+-perm mode # Find files with specific permissions, e.g., 644
+-exec command {} ; # Execute command on each file found
+
+Common Actions
+-print # Print the full file path (default action)
+-exec cmd ; # Execute command on each file found
+-delete # Delete found files (use with caution)
+-ls # List in ls -dils format on found files
+
+Logical Operators
+-and # Logical AND (implied if omitted)
+-or # Logical OR
+-not # Logical NOT
+
+Examples
+find . -name '.txt' -print # Find all .txt files in current directory
+find /home/user -type f -size +10M # Find files larger than 10MB in /home/user
+find . -type d -user username # Find directories owned by username in current directory
+find / -type f -perm 777 # Find all files with 777 permissions from root
+find . -mtime -7 -exec cp {} ~/backup/ ; # Copy files modified in the last 7 days to ~/backup
+find /var/log -name '.log' -mtime +30 -delete # Delete log files older than 30 days in /var/log
+
+Permissions
+-perm mode # Exact permission match
+-perm -mode # Any of the permissions match for anyone
+-perm /mode # Any of the permissions match for the specific mode
+
+Remember, the 'find' command is powerful and can affect many files. Always double-check your command, especially when using actions like -delete.

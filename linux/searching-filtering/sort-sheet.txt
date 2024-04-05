@@ -1,0 +1,47 @@
+Sort Cheat Sheet
+Basic Structure of a Sort Command
+sort [OPTION]... [FILE]...
+
+Sorting Options
+-n # Sort numerically
+-r # Reverse the result of comparisons
+-k # Sort via a key; k1[,k2], where k1 is the start and k2 is the end position
+-t # Set field separator
+
+General Options
+-o # Write result to file instead of standard output
+-c # Check for sorted order; do not sort
+-C # Check for sorted order; quietly
+
+Merge Options
+-m # Merge already sorted files; do not sort
+
+Unique Sort
+-u # Output only the first of an equal run
+
+Stability Options
+-s # Stabilize sort by disabling last-resort comparison
+
+Other Options
+--ignore-case # Ignore case when comparing
+--numeric-sort # Sort numerically (the same as -n)
+--reverse # Reverse the result of comparisons (the same as -r)
+
+Example Usage
+sort file.txt # Sort lines of text in a file
+sort -n file.txt # Sort lines numerically
+sort -r file.txt # Reverse sort lines of text
+sort -k1,1 file.txt # Sort by the first column
+sort -t, -k2,2 file.csv # Sort a CSV file by the second column
+sort -o sorted.txt unsorted.txt # Sort 'unsorted.txt' and save the results to 'sorted.txt'
+sort -c sorted.txt # Check if 'sorted.txt' is already sorted
+sort -u duplicates.txt # Remove duplicates and sort 'duplicates.txt'
+sort -m sorted1.txt sorted2.txt # Merge two sorted files without sorting
+
+Advanced Sorting
+sort -t, -k2,2n -k1,1r file.csv # Sort a CSV file numerically by the second column, then reverse by the first column
+sort -k1,1 -k2,2n file.txt # Sort by the first column alphabetically, then by the second column numerically
+
+Notes
+Options can be combined, e.g., 'sort -nr' for a numeric reverse sort.
+Sorting can be influenced by the locale settings; consider setting the LC_ALL environment variable for consistent results.

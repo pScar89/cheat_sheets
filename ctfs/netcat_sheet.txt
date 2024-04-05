@@ -1,0 +1,53 @@
+ # Netcat (nc) Cheat Sheet
+
+# Basic Syntax
+nc [options] [destination] [port]          # Connect to a destination on a specific port
+nc -l [port]                               # Listen on a specific port for incoming connections
+
+# Common Options
+-l                                         # Listen mode, for inbound connects
+-v                                         # Verbose mode
+-n                                         # Do not resolve names
+-u                                         # UDP mode
+-z                                         # Zero-I/O mode (scanning)
+-w [seconds]                               # Timeout for connections and reads
+-p [local port]                            # Local port number
+-s [local IP address]                      # Local source address
+-k                                         # Keep inbound sockets open for multiple connects
+-C                                         # Send CRLF as line-ending
+-q [seconds]                               # Quit after EOF on stdin and delay of seconds
+
+# Examples
+nc example.com 80                          # Connect to example.com on port 80
+nc -l 1234                                 # Listen on port 1234 for incoming TCP connections
+nc -lu 1234                                # Listen on port 1234 for incoming UDP connections
+nc -v -w 2 example.com 22                  # Verbose output, 2-second timeout, connect to port 22
+nc -zv example.com 20-30                   # Scan ports 20-30 of example.com using TCP
+nc -uzv example.com 20-30                  # Scan ports 20-30 of example.com using UDP
+nc -l -p 1234 > filename.out               # Listen on port 1234 and write data to file
+echo "text" | nc -w 3 example.com 1234     # Send "text" to example.com on port 1234 with a 3-second timeout
+nc -l 1234 < filename.in                   # Listen on port 1234 and send file contents to client
+nc -k -l 1234                              # Keep listening on port 1234 for multiple connections
+
+# File Transfer
+## To send a file (sender)
+nc -w 3 -q 1 [receiver's IP] [port] < [filename]
+## To receive a file (receiver)
+nc -l -p [port] > [filename]
+
+# Chat Server
+## Server
+nc -l -p [port]
+## Client
+nc [server's IP] [port]
+
+# Banner Grabbing
+echo -n | nc -v -w 2 [destination] [port]
+
+# Port Scanning
+nc -zv [destination] [start port]-[end port]
+
+# Proxy with Netcat
+## Listening on port 8080 and forwarding data to another host
+mkfifo backpipe
+nc -l -p 8080 0<backpipe | nc [destination] [port] 1>backpipe
