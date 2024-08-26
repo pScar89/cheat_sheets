@@ -1,0 +1,49 @@
+# Python `venv` Cheat Sheet
+
+# Setting Up `venv`
+python3 -m venv [environment_name]            # Create a new virtual environment
+python3 -m venv .                             # Create a virtual environment in the current directory
+
+# Activating a Virtual Environment
+source [environment_name]/bin/activate        # Activate the virtual environment on Unix or macOS
+.\[environment_name]\Scripts\activate         # Activate the virtual environment on Windows
+
+# Deactivating a Virtual Environment
+deactivate                                    # Deactivate the virtual environment
+
+# Installing Packages
+pip install [package_name]                    # Install a package in the virtual environment
+pip install -r requirements.txt               # Install all packages listed in a requirements file
+
+# Listing Installed Packages
+pip list                                      # List all installed packages in the virtual environment
+
+# Freezing Installed Packages
+pip freeze > requirements.txt                 # Export all installed packages to a requirements file
+
+# Uninstalling Packages
+pip uninstall [package_name]                  # Uninstall a package from the virtual environment
+
+# Updating Packages
+pip install --upgrade [package_name]          # Update a specific package to the latest version
+
+# Checking for Package Updates
+pip list --outdated                           # List all outdated packages in the virtual environment
+
+# Removing a Virtual Environment
+rm -rf [environment_name]                     # Delete the virtual environment directory on Unix or macOS
+rmdir /S /Q [environment_name]                # Delete the virtual environment directory on Windows
+
+# Using Different Python Versions
+python3.x -m venv [environment_name]          # Create a virtual environment with a specific Python version
+
+# Managing Multiple Virtual Environments
+pipx install [package_name]                   # Install Python packages globally, in isolated environments
+
+# Packaging for Distribution
+python setup.py sdist bdist_wheel             # Create source and binary distribution packages
+twine upload dist/*                           # Upload the distribution packages to PyPI
+
+# Troubleshooting
+which python                                  # Check which Python interpreter is being used
+which pip                                     # Check which pip is being used
