@@ -20,6 +20,7 @@ git pull [alias] [branch]                     # Fetch and merge changes from the
 git branch                                    # List all local branches
 git branch [branch_name]                      # Create a new branch
 git checkout [branch_name]                    # Switch to a specified branch
+git checkout -b [branch_name]                 # Create a new branch and switch to it
 git merge [branch_name]                       # Merge a branch into the active branch
 git branch -d [branch_name]                   # Delete a branch
 
